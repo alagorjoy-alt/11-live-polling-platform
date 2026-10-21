@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poll | Show of Hands</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site"><a href="/">Show of Hands</a></header>
+  <main>
+    <div id="error-panel" class="panel" hidden>
+      <h1>Poll not found</h1>
+      <p class="lead">This link may be mistyped, or the poll no longer exists.</p>
+      <a href="/">Create a new poll</a>
+    </div>
+
+    <div id="poll-view" hidden>
+      <div class="topline">
+        <span id="status" class="pill wait">Connecting</span>
+        <span id="closed-note" class="meta"></span>
+      </div>
+      <h1 id="question"></h1>
+
+      <div class="grid">
+        <section class="panel" aria-labelledby="vote-h">
+          <h2 id="vote-h">Your vote</h2>
+          <form id="vote-form">
+            <fieldset id="choices"><legend class="meta" style="margin-bottom:8px">Choose one option</legend></fieldset>
+            <div class="actions">
+              <button class="primary" id="vote-btn" type="submit">Cast vote</button>
+              <button class="danger" id="close-btn" type="button" hidden>Close poll</button>
+            </div>
+            <div id="msg" class="msg" role="status" aria-live="polite"></div>
+          </form>
+          <div class="share">
+            <input id="share-url" type="text" readonly aria-label="Poll link">
+            <button id="copy-btn" type="button">Copy link</button>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="results-h">
+          <h2 id="results-h">Live results</h2>
+          <div class="total"><span id="total">0</span> <span class="meta">votes</span></div>
+          <div class="chart-box"><canvas id="chart" role="img" aria-label="Bar chart of votes per option"></canvas></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="/static/poll.js"></script>
+</body>
+</html>

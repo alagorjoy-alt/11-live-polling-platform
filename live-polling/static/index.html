@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Show of Hands: live polls</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site"><a href="/">Show of Hands</a></header>
+  <main>
+    <h1>Ask a question, watch the answers arrive</h1>
+    <p class="lead">Create a poll, share the link, and see every vote appear live. Each browser can vote once.</p>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="create-h">
+        <h2 id="create-h">New poll</h2>
+        <form id="create-form" novalidate>
+          <div class="field">
+            <label for="question">Question</label>
+            <input id="question" type="text" maxlength="200" placeholder="What should we build next?" required>
+          </div>
+          <div class="field">
+            <label>Options (2 to 10)</label>
+            <div id="options"></div>
+            <button type="button" id="add-option">Add option</button>
+          </div>
+          <div class="field">
+            <label for="duration">Voting window</label>
+            <select id="duration">
+              <option value="">Until I close it</option>
+              <option value="5">5 minutes</option>
+              <option value="60">1 hour</option>
+              <option value="1440">24 hours</option>
+            </select>
+          </div>
+          <button class="primary" id="create-btn" type="submit">Create poll</button>
+          <div id="create-msg" class="msg" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="recent-h">
+        <h2 id="recent-h">Recent polls</h2>
+        <ul id="poll-list" class="poll-list"></ul>
+        <p id="empty" class="empty" hidden>No polls yet. Create the first one.</p>
+      </section>
+    </div>
+  </main>
+  <script src="/static/index.js"></script>
+</body>
+</html>
