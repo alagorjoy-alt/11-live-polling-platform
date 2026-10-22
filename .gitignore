@@ -2,3 +2,8 @@ node_modules
 .env
 __pycache__
 .DS_Store
+.venv/
+*.db
+*.db-wal
+*.db-shm
+.pytest_cache/

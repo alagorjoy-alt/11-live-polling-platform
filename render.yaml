@@ -1,9 +1,9 @@
-# Render blueprint. SQLite needs a persistent disk (paid) or data resets on each deploy.
 services:
   - type: web
     name: live-polling
     runtime: python
     plan: free
+    rootDir: live-polling
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
